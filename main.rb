@@ -39,4 +39,12 @@ def decode_word(morse_word)
   char.join
 end
 
-p decode_word('-- -.--   -. .- -- .')
+def decode(morse_phrase)
+  words = morse_phrase.split('   ')
+  words = words.map do |w|
+    decode_word(w)
+  end
+  words.join(' ')
+end
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
