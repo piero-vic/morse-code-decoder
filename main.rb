@@ -28,7 +28,15 @@ $morse_alphabet = {
 }
 
 def decode_char(morse_char)
-  puts $morse_alphabet[morse_char]
+  $morse_alphabet[morse_char]
 end
 
-decode_char('--..')
+def decode_word(morse_word)
+  chars = morse_word.split
+  char = chars.map do |c|
+    decode_char(c)
+  end
+  char.join
+end
+
+p decode_word('-- -.--   -. .- -- .')
